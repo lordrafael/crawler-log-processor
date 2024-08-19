@@ -4,6 +4,10 @@ import csv
 
 app = Flask(__name__)
 
+@app.route('/', methods=['GET'])
+def index():
+    return 'The Flask app is running!'
+
 def filter_googlebot_logs(log_data: str) -> str:
     """Filters log records containing 'Googlebot' or 'Googlebot-Image'."""
     return "\n".join(line for line in log_data.splitlines() if "Googlebot" in line or "Googlebot-Image" in line)
